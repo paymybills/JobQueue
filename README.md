@@ -1,4 +1,4 @@
-# 🚀 JobQueue — Distributed Job Queue in Go
+# JobQueue — Distributed Job Queue in Go
 
 A high-performance, in-process distributed job queue system built in Go. This project demonstrates advanced concurrency patterns, reliable execution guarantees, and resilient system design.
 
@@ -7,21 +7,21 @@ A high-performance, in-process distributed job queue system built in Go. This pr
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-*   **⚡ High Concurrency**: Leverages Go goroutines with fine-grained control using `sync.Mutex` and `sync.Cond` for efficient resource utilization.
-*   **⚖️ Priority-Based Processing**: Jobs are processed based on their assigned priority level.
-*   **🛡️ Execution Guarantees**: 
+*   **High Concurrency**: Leverages Go goroutines with fine-grained control using `sync.Mutex` and `sync.Cond` for efficient resource utilization.
+*   **Priority-Based Processing**: Jobs are processed based on their assigned priority level.
+*   **Execution Guarantees**: 
     *   **At-least-once**: Automatic retries for transient failures.
     *   **Exactly-once**: Idempotency registry prevents duplicate job processing.
-*   **📉 Backpressure Management**: Bounded queue capacity with HTTP 503 signaling to prevent system overload.
-*   **🔄 Resilient Retries**: Exponential backoff with jitter to reduce downstream contention.
-*   **📥 Dead Letter Queue (DLQ)**: Failed jobs are quarantined for manual inspection and replay.
-*   **📊 Monitoring & Metrics**: Built-in HTTP endpoints for system health and job statistics.
+*   **Backpressure Management**: Bounded queue capacity with HTTP 503 signaling to prevent system overload.
+*   **Resilient Retries**: Exponential backoff with jitter to reduce downstream contention.
+*   **Dead Letter Queue (DLQ)**: Failed jobs are quarantined for manual inspection and replay.
+*   **Monitoring & Metrics**: Built-in HTTP endpoints for system health and job statistics.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 For a deep dive into the design decisions, component interactions, and execution guarantees, see the **[Architecture Deep Dive](docs/ARCHITECTURE.md)**.
 
@@ -39,7 +39,7 @@ flowchart TB
 
 ---
 
-## 🚦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -64,7 +64,7 @@ The system will start and automatically:
 
 ---
 
-## 🛠️ API Reference
+## API Reference
 
 ### Submit a Job
 ```bash
@@ -100,7 +100,7 @@ curl http://localhost:8080/metrics
 
 ---
 
-## 🧪 Implementation Details
+## Implementation Details
 
 *   **Concurrency**: Uses `sync.Cond` for efficient blocking dequeues (parked goroutines consume zero CPU).
 *   **Idempotency**: Implemented via a thread-safe registry with `sync.RWMutex` to optimize for high-frequency reads.
